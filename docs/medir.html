@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;wasm-unsafe-eval&#39;; worker-src &#39;self&#39;; style-src &#39;self&#39;; img-src &#39;self&#39; blob: data:; media-src &#39;self&#39; blob:; connect-src &#39;self&#39;; object-src &#39;none&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="referrer" content="no-referrer">
+    <title>Pasarela · medidor</title>
+    <script type="module" crossorigin src="./assets/medir-DvTO3mUh.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/comun-Dy3AGC8z.js">
+    <link rel="modulepreload" crossorigin href="./assets/lt-BEAqVR_F.js">
+    <link rel="modulepreload" crossorigin href="./assets/receptor-CMpIxN_F.js">
+    <link rel="stylesheet" crossorigin href="./assets/comun-CLhJjx6Z.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="./">← Pasarela óptica</a>
+        <h1>Medidor</h1>
+        <p>Doce pruebas de 30 s por dirección: un equipo las enseña y el otro las mide. La mejor da los valores por defecto.</p>
+      </header>
+
+      <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+
+      <section>
+        <h2>En el equipo que enseña los QR</h2>
+        <label class="campo">Dirección
+          <select id="direccion">
+            <option value="portatil">Del portátil al móvil</option>
+            <option value="movil">Del móvil al portátil</option>
+          </select>
+        </label>
+        <table class="medidas"><thead><tr><th>n.º</th><th>Ajustes</th><th>Mínimo</th></tr></thead><tbody id="bateria"></tbody></table>
+        <div class="botones">
+          <button id="emitir" type="button">Empezar las 12 pruebas</button>
+        </div>
+        <div class="botones">
+          <label class="campo">Prueba final de 1 MiB con la n.º
+            <select id="final"></select>
+          </label>
+          <button id="emitir-final" type="button" class="secundario">Enseñar 1 MiB</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>En el equipo que mide (con la cámara)</h2>
+        <div class="rejilla-campos">
+          <label class="campo">Cámara
+            <select id="camara"><option value="trasera">Trasera</option><option value="delantera">Delantera</option></select>
+          </label>
+        </div>
+        <div class="botones">
+          <button id="medir" type="button">Abrir la cámara y medir</button>
+          <button id="parar-medir" type="button" class="secundario" hidden>Cerrar la cámara</button>
+        </div>
+        <video id="video" class="camara" muted playsinline hidden></video>
+        <p id="en-curso" class="estado"></p>
+        <table class="medidas">
+          <thead><tr><th>n.º</th><th>Ajustes</th><th>KB/s</th><th>Recibido</th><th>1 MiB</th></tr></thead>
+          <tbody id="medidas"></tbody>
+        </table>
+        <p id="mejor" class="resumen"></p>
+        <div class="botones">
+          <button id="copiar" type="button" class="secundario">Copiar la tabla</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="pantalla" hidden>
+      <div id="marco"><canvas id="lienzo" aria-label="QR animado"></canvas></div>
+      <div class="barra">
+        <p id="info"></p>
+        <button id="parar" type="button">Parar</button>
+      </div>
+    </div>
+  </body>
+</html>

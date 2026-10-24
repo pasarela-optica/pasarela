@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;wasm-unsafe-eval&#39;; worker-src &#39;self&#39;; style-src &#39;self&#39;; img-src &#39;self&#39; blob: data:; media-src &#39;self&#39; blob:; connect-src &#39;self&#39;; object-src &#39;none&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="referrer" content="no-referrer">
+    <title>Pasarela · recibir</title>
+    <script type="module" crossorigin src="./assets/recibir-DvcL-39Y.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/comun-Dy3AGC8z.js">
+    <link rel="modulepreload" crossorigin href="./assets/lt-BEAqVR_F.js">
+    <link rel="modulepreload" crossorigin href="./assets/receptor-CMpIxN_F.js">
+    <link rel="stylesheet" crossorigin href="./assets/comun-CLhJjx6Z.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="./">← Pasarela óptica</a>
+        <h1>Recibir</h1>
+      </header>
+
+      <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+
+      <section>
+        <div class="rejilla-campos">
+          <label class="campo">Cámara
+            <select id="camara"><option value="trasera">Trasera</option><option value="delantera">Delantera</option></select>
+          </label>
+          <label class="campo">Lector
+            <select id="lector"><option value="auto">zxing</option><option value="nativo">El del navegador (solo b45)</option></select>
+          </label>
+        </div>
+        <div class="botones">
+          <button id="empezar" type="button">Abrir la cámara</button>
+          <button id="parar" type="button" class="secundario" hidden>Cerrar la cámara</button>
+        </div>
+        <video id="video" class="camara" muted playsinline hidden></video>
+        <p id="estado" class="estado"></p>
+        <progress id="avance" max="100" value="0" hidden></progress>
+        <p id="detalle" class="ayuda"></p>
+        <div id="otra" class="botones" hidden>
+          <p class="aviso">Está llegando otro envío.</p>
+          <button id="cambiar" type="button" class="secundario">Cambiar a ese</button>
+        </div>
+      </section>
+
+      <section id="emparejar" hidden>
+        <h2>Emparejar por Wi-Fi</h2>
+        <p id="e-texto"></p>
+        <p class="url" id="e-url"></p>
+        <div class="botones">
+          <button id="conectar" type="button">Conectar por Wi-Fi</button>
+          <button id="e-otro" type="button" class="secundario">Ahora no</button>
+        </div>
+      </section>
+
+      <section id="resultado" hidden>
+        <h2 id="r-nombre"></h2>
+        <p id="r-info" class="ayuda"></p>
+        <img id="r-imagen" class="vista" alt="Vista previa" hidden>
+        <pre id="r-texto" class="texto" hidden></pre>
+        <div class="botones">
+          <a id="guardar" class="boton" href="./" download>Guardar</a>
+          <button id="copiar" type="button" class="secundario" hidden>Copiar el texto</button>
+          <button id="otro" type="button" class="secundario">Recibir otro</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

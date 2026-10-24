@@ -1,0 +1,1 @@
+import{i as e,t}from"./comun-Dy3AGC8z.js";e(),navigator.serviceWorker?.ready.then(()=>{t(`sin-red`).textContent=`Guardada en este navegador: desde ahora también funciona sin red.`});

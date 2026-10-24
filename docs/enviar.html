@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;wasm-unsafe-eval&#39;; worker-src &#39;self&#39;; style-src &#39;self&#39;; img-src &#39;self&#39; blob: data:; media-src &#39;self&#39; blob:; connect-src &#39;self&#39;; object-src &#39;none&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="referrer" content="no-referrer">
+    <title>Pasarela · enviar</title>
+    <script type="module" crossorigin src="./assets/enviar-BgiSJ_vy.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/comun-Dy3AGC8z.js">
+    <link rel="modulepreload" crossorigin href="./assets/lt-BEAqVR_F.js">
+    <link rel="stylesheet" crossorigin href="./assets/comun-CLhJjx6Z.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="./">← Pasarela óptica</a>
+        <h1>Enviar</h1>
+      </header>
+
+      <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+
+      <section>
+        <h2>Qué</h2>
+        <div class="botones">
+          <label class="boton grande">Elegir un fichero<input id="fichero" type="file" hidden></label>
+        </div>
+        <p class="ayuda">O escribe un texto:</p>
+        <textarea id="texto" rows="3" aria-label="Texto para enviar"></textarea>
+        <p id="eleccion" class="resumen"></p>
+      </section>
+
+      <section>
+        <h2>Cómo</h2>
+        <label class="campo">Dirección
+          <select id="perfil">
+            <option value="portatil">Del portátil al móvil</option>
+            <option value="movil">Del móvil al portátil</option>
+          </select>
+        </label>
+        <details>
+          <summary>Ajustes</summary>
+          <div class="rejilla-campos">
+            <label class="campo">Versión <input id="version" type="number" min="1" max="40"></label>
+            <label class="campo">Corrección
+              <select id="ecc"><option value="L">L</option><option value="M">M</option></select>
+            </label>
+            <label class="campo">Modo
+              <select id="modo"><option value="bytes">bytes</option><option value="b45">b45</option></select>
+            </label>
+            <label class="campo">QR a la vez
+              <select id="rejilla"><option value="1">1</option><option value="2">2</option><option value="4">4</option></select>
+            </label>
+            <label class="campo">fps <input id="fps" type="number" min="1" max="60"></label>
+          </div>
+        </details>
+        <p id="estimacion" class="ayuda"></p>
+        <div class="botones">
+          <button id="empezar" type="button">Enseñar los QR</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="pantalla" hidden>
+      <div id="marco"><canvas id="lienzo" aria-label="QR animado"></canvas></div>
+      <div class="barra">
+        <p id="info"></p>
+        <button id="parar" type="button">Parar</button>
+      </div>
+    </div>
+  </body>
+</html>
